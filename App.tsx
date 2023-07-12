@@ -1,22 +1,11 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import LoginScreen from './src/screens/LoginScreen';
+import WelcomeScreen from './src/screens/WelcomeScreen';
+import RegisterScreen from './src/screens/RegisterScreen';
+import ForgotPasswordScreen from './src/screens/ForgotPasswordScreen';
 
 const App: React.FC = () => {
-    return (
-        <View style={styles.screen}>
-            <Text style={styles.text}>Test</Text>
-        </View>
-    );
+    return <ForgotPasswordScreen />;
 };
-
-const styles = StyleSheet.create({
-    screen: {
-        flex: 1,
-    },
-    text: {
-        color: 'red',
-        fontWeight: 'bold',
-    },
-});
 
 export default App;
