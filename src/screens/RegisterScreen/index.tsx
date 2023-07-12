@@ -26,7 +26,7 @@ const RegisterScreen = () => {
 
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-            <KeyboardAvoidingView style={styles.container} behavior={'padding'}>
+            <KeyboardAvoidingView style={styles.container} behavior={'height'}>
                 <View style={styles.container}>
                     <ThemedCard style={{width: cardWidth}}>
                         <View>

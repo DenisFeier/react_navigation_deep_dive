@@ -26,7 +26,7 @@ const ForgotPasswordScreen = () => {
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <KeyboardAvoidingView
                 style={[styles.container, styles.center]}
-                behavior={'padding'}>
+                behavior={'height'}>
                 <View style={[styles.container, styles.center]}>
                     <ThemedCard style={{width: cardWidth}}>
                         <View style={styles.center}>

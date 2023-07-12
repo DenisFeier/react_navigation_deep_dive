@@ -13,8 +13,13 @@ import ThemedCard from '../../components/ThemedCard';
 import RoundedButton from '../../components/RoundedButton';
 import {styles} from './styles';
 import DismissKeyboardOnMountHOC from '../../hoc/DismissKeyboardOnMountHOC';
+import {useNavigation} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {LoginStackParams} from '../../router/LoginStack/params';
 
 const LoginScreen = () => {
+    const navigation =
+        useNavigation<StackNavigationProp<LoginStackParams, 'Login'>>();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const {width} = useWindowDimensions();
@@ -25,13 +30,15 @@ const LoginScreen = () => {
         console.log('Logging in with:', email, password);
     };
 
-    const onResetPasswordTapped = () => {};
+    const onResetPasswordTapped = () => {
+        navigation.push('ResetPassword');
+    };
 
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <KeyboardAvoidingView
                 style={[styles.container, styles.center]}
-                behavior={'padding'}>
+                behavior={'height'}>
                 <View style={[styles.container, styles.center]}>
                     <ThemedCard style={{width: cardWidth}}>
                         <View style={styles.center}>
