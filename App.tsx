@@ -1,7 +1,8 @@
 import {NavigationContainer} from '@react-navigation/native';
 import React, {useEffect} from 'react';
-import LoginStack from './src/router/LoginStack';
+// import LoginStack from './src/router/LoginStack';
 import SplashScreen from 'react-native-splash-screen';
+import TabBar from './src/router/TabBar';
 
 const App: React.FC = () => {
     useEffect(() => {
@@ -10,7 +11,8 @@ const App: React.FC = () => {
 
     return (
         <NavigationContainer>
-            <LoginStack />
+            {/* <LoginStack /> */}
+            <TabBar />
         </NavigationContainer>
     );
 };

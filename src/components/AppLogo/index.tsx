@@ -1,18 +1,17 @@
 import React from 'react';
 import {
     Image,
-    ImageProps,
-    StyleProp,
     StyleSheet,
     View,
-    ViewProps,
+    ViewStyle,
+    ImageStyle,
     useWindowDimensions,
 } from 'react-native';
 import {LOGO} from '../../constants/Images';
 
 interface AppLogoProps {
-    style?: StyleProp<ViewProps>;
-    innerStyle?: StyleProp<ImageProps>;
+    style?: ViewStyle;
+    innerStyle?: ImageStyle;
 }
 
 const AppLogo: React.FC<AppLogoProps> = () => {
