@@ -7,5 +7,6 @@ export const styles = StyleSheet.create({
     text: {
         fontSize: 18,
         padding: 10,
+        textAlign: 'justify',
     },
 });

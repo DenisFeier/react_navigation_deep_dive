@@ -7,7 +7,7 @@ import {TabbarIconProps} from '../../types/TabBarIconProps';
 import THEME from '../../constants/Theme';
 import ProductStack from '../ProductStack';
 import CategoryDrawer from '../CategoryDrawer';
-import SettingsScreen from '../../screens/SettingsScreen';
+import SettingsStack from '../SettingsStack';
 
 const Tab = createBottomTabNavigator<TabBarParams>();
 
@@ -30,27 +30,30 @@ const TabBar = () => {
                 headerShown: false,
                 tabBarActiveTintColor: THEME.colors.primary,
             }}>
-            <Tab.Screen
-                name="Products"
-                component={ProductStack}
-                options={() => ({
-                    tabBarIcon: ProductsIcon,
-                })}
-            />
-            <Tab.Screen
-                name="Categories"
-                component={CategoryDrawer}
-                options={() => ({
-                    tabBarIcon: CategoryIcon,
-                })}
-            />
-            <Tab.Screen
-                name="Settings"
-                component={SettingsScreen}
-                options={() => ({
-                    tabBarIcon: SettingsIcon,
-                })}
-            />
+            <Tab.Group>
+                <Tab.Screen
+                    name="Products"
+                    component={ProductStack}
+                    options={() => ({
+                        tabBarIcon: ProductsIcon,
+                    })}
+                />
+                <Tab.Screen
+                    name="Categories"
+                    component={CategoryDrawer}
+                    options={() => ({
+                        tabBarIcon: CategoryIcon,
+                    })}
+                />
+                <Tab.Screen
+                    name="SettingsStack"
+                    component={SettingsStack}
+                    options={() => ({
+                        tabBarIcon: SettingsIcon,
+                        tabBarLabel: 'Settings',
+                    })}
+                />
+            </Tab.Group>
         </Tab.Navigator>
     );
 };

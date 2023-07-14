@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {
     View,
     KeyboardAvoidingView,
@@ -16,6 +16,7 @@ import DismissKeyboardOnMountHOC from '../../hoc/DismissKeyboardOnMountHOC';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {LoginStackParams} from '../../router/LoginStack/params';
+import {SessionContext} from '../../context/SessionContext';
 
 const LoginScreen = () => {
     const navigation =
@@ -24,10 +25,12 @@ const LoginScreen = () => {
     const [password, setPassword] = useState('');
     const {width} = useWindowDimensions();
     const cardWidth = width * 0.8;
+    const {setSession} = useContext(SessionContext);
 
     const handle = () => {
         // Perform login logic with the entered username and password
         console.log('Logging in with:', email, password);
+        setSession(true);
     };
 
     const onResetPasswordTapped = () => {
