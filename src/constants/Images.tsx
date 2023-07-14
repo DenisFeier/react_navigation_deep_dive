@@ -6,3 +6,4 @@ export const METRIX = require('../assets/metrix.jpg');
 export const SHIRT = require('../assets/shirt.jpg');
 export const STEAK = require('../assets/steak.jpg');
 export const VEGETARIAN = require('../assets/veg.jpg');
+export const PROFILE_PICTURE = require('../assets/profilePic.png');

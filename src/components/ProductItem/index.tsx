@@ -6,7 +6,7 @@ import {styles} from './styles';
 type ProductItemProps = {
     product: Product;
     itemWidth: number;
-    onTap?: () => void;
+    onTap?: (product: Product) => void;
 };
 
 const ProductItem: React.FC<ProductItemProps> = ({
@@ -14,8 +14,15 @@ const ProductItem: React.FC<ProductItemProps> = ({
     itemWidth,
     onTap,
 }) => {
+    const onTapItem = () => {
+        if (!onTap) {
+            return;
+        }
+        onTap(product);
+    };
+
     return (
-        <TouchableOpacity onPress={onTap} disabled={!onTap}>
+        <TouchableOpacity onPress={onTapItem} disabled={!onTap}>
             <View
                 style={{
                     width: itemWidth,

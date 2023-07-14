@@ -1,28 +1,13 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {Text, View} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {TabBarParams} from './params';
 import {TabbarIconProps} from '../../types/TabBarIconProps';
 import THEME from '../../constants/Theme';
 import ProductStack from '../ProductStack';
-
-const CategoryScreen = () => {
-    return (
-        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-            <Text>Category!</Text>
-        </View>
-    );
-};
-
-const SettingsScreen = () => {
-    return (
-        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-            <Text>Settings!</Text>
-        </View>
-    );
-};
+import CategoryDrawer from '../CategoryDrawer';
+import SettingsScreen from '../../screens/SettingsScreen';
 
 const Tab = createBottomTabNavigator<TabBarParams>();
 
@@ -54,7 +39,7 @@ const TabBar = () => {
             />
             <Tab.Screen
                 name="Categories"
-                component={CategoryScreen}
+                component={CategoryDrawer}
                 options={() => ({
                     tabBarIcon: CategoryIcon,
                 })}
