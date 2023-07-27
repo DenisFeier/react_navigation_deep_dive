@@ -1,19 +1,11 @@
 import React from 'react';
 import {DUMMY_DATA} from '../../data/dummyData';
-import {useNavigation} from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
-import {ProductStackParams} from '../../router/ProductStack/params';
 import {Product} from '../../types/Product';
 import ProductsList from '../../components/ProductsList';
 
 const ProductsScreen: React.FC = () => {
-    const navigation =
-        useNavigation<
-            StackNavigationProp<ProductStackParams, 'ProductsList'>
-        >();
-
     const onTap = (product: Product) => {
-        navigation.navigate('ProductDetails', {product});
+        console.log(product);
     };
 
     return <ProductsList data={DUMMY_DATA} onTap={onTap} />;

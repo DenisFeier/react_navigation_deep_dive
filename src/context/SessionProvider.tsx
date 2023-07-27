@@ -28,10 +28,7 @@ const SessionProvider: React.FC<SessionProviderProps> = ({children}) => {
 
     const updateSession = async (value: boolean) => {
         try {
-            await AsyncStorage.setItem(
-                SESSION_KEY,
-                (value ? 'true' : 'false').toLowerCase(),
-            );
+            await AsyncStorage.setItem(SESSION_KEY, value ? 'true' : 'false');
             setSession(value);
         } catch (e) {
             setSession(false);

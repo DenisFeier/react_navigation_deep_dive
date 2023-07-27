@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useState} from 'react';
 import {
     View,
     KeyboardAvoidingView,
@@ -13,29 +13,18 @@ import ThemedCard from '../../components/ThemedCard';
 import RoundedButton from '../../components/RoundedButton';
 import {styles} from './styles';
 import DismissKeyboardOnMountHOC from '../../hoc/DismissKeyboardOnMountHOC';
-import {useNavigation} from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
-import {LoginStackParams} from '../../router/LoginStack/params';
-import {SessionContext} from '../../context/SessionContext';
 
 const LoginScreen = () => {
-    const navigation =
-        useNavigation<StackNavigationProp<LoginStackParams, 'Login'>>();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const {width} = useWindowDimensions();
     const cardWidth = width * 0.8;
-    const {setSession} = useContext(SessionContext);
 
     const handle = () => {
-        // Perform login logic with the entered username and password
-        console.log('Logging in with:', email, password);
-        setSession(true);
+        console.log(email, password);
     };
 
-    const onResetPasswordTapped = () => {
-        navigation.push('ResetPassword');
-    };
+    const onResetPasswordTapped = () => {};
 
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>

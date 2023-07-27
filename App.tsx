@@ -1,25 +1,14 @@
-import {NavigationContainer} from '@react-navigation/native';
-import React, {useContext, useEffect} from 'react';
-import LoginStack from './src/router/LoginStack';
+import React, {useEffect} from 'react';
 import SplashScreen from 'react-native-splash-screen';
-import TabBar from './src/router/TabBar';
 import SessionProvider from './src/context/SessionProvider';
-import {SessionContext} from './src/context/SessionContext';
+import WelcomeScreen from './src/screens/WelcomeScreen';
 
 const Container = () => {
-    const {idle, session} = useContext(SessionContext);
-
     useEffect(() => {
-        if (!idle) {
-            SplashScreen.hide();
-        }
-    }, [idle]);
+        SplashScreen.hide();
+    }, []);
 
-    return (
-        <NavigationContainer>
-            {session ? <TabBar /> : <LoginStack />}
-        </NavigationContainer>
-    );
+    return <WelcomeScreen />;
 };
 
 const App: React.FC = () => {
