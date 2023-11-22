@@ -3,11 +3,21 @@ import {View, Text} from 'react-native';
 import RoundedButton from '../../components/RoundedButton';
 import {styles} from './styles';
 import AppLogo from '../../components/AppLogo';
+import {useNavigation} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {LoginStackParams} from '../../router/LoginStack/params';
 
 const WelcomeScreen = () => {
-    const onLoginTapped = () => {};
+    const navigation =
+        useNavigation<StackNavigationProp<LoginStackParams, 'Welcome'>>();
 
-    const onRegisterTapped = () => {};
+    const onLoginTapped = () => {
+        navigation.navigate('Login');
+    };
+
+    const onRegisterTapped = () => {
+        navigation.navigate('Register');
+    };
 
     return (
         <View style={styles.container}>
