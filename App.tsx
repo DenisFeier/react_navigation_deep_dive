@@ -4,6 +4,7 @@ import SessionProvider from './src/context/SessionProvider';
 
 import {NavigationContainer} from '@react-navigation/native';
 import LoginStack from './src/router/LoginStack';
+import TabBar from './src/router/TabBar';
 
 const Container = () => {
     useEffect(() => {
@@ -12,7 +13,7 @@ const Container = () => {
 
     return (
         <NavigationContainer>
-            <LoginStack />
+            <TabBar />
         </NavigationContainer>
     );
 };
