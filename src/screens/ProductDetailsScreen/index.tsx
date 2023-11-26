@@ -3,10 +3,13 @@ import {View, useWindowDimensions} from 'react-native';
 import {styles} from './styles';
 import ProductItem from '../../components/ProductItem';
 import BigTextScrollView from '../../components/BigTextScrollView';
-import {DUMMY_DATA} from '../../data/dummyData';
+
+import {RouteProp, useRoute} from '@react-navigation/native';
+import {ProductStackParams} from '../../router/ProductStack/params';
 
 const ProductDetailsScreen: React.FC = () => {
-    const product = DUMMY_DATA[0];
+    const route = useRoute<RouteProp<ProductStackParams, 'ProductDetails'>>();
+    const product = route.params.product;
     const {width} = useWindowDimensions();
     const cardWidth = width * 0.8;
 

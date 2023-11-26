@@ -5,6 +5,7 @@ import WelcomeScreen from '../../screens/WelcomeScreen';
 import Feather from 'react-native-vector-icons/Feather';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {TabbarIconProps} from '../../types/TabBarIconProps';
+import ProductStack from '../ProductStack';
 
 const Tab = createBottomTabNavigator<TabBarParams>();
 
@@ -24,11 +25,11 @@ const TabBar = () => {
     return (
         <Tab.Navigator
             screenOptions={{
-                header: () => null,
+                headerShown: false,
             }}>
             <Tab.Screen
                 name="Products"
-                component={WelcomeScreen}
+                component={ProductStack}
                 options={{
                     tabBarIcon: ProductsIcon,
                 }}
