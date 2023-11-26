@@ -6,6 +6,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {TabbarIconProps} from '../../types/TabBarIconProps';
 import ProductStack from '../ProductStack';
+import CategoryDrawer from '../CategoryDrawer';
 
 const Tab = createBottomTabNavigator<TabBarParams>();
 
@@ -37,7 +38,7 @@ const TabBar = () => {
 
             <Tab.Screen
                 name="Categories"
-                component={WelcomeScreen}
+                component={CategoryDrawer}
                 options={{
                     tabBarIcon: CategoryIcon,
                 }}
