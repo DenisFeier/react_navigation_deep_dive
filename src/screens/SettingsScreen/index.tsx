@@ -1,20 +1,39 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {View, Text, Image, useWindowDimensions} from 'react-native';
 import {PROFILE_PICTURE} from '../../constants/Images';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import SettingsButton from '../../components/SettingsButton';
 import {styles} from './styles';
+import {useNavigation} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {SettingsStackParams} from '../../router/SettingsStack/params';
+import {DUMMY_TEXT} from '../../data/dummyText';
+import {SessionContext} from '../../context/SessionContext';
 
 const SettingsScreen: React.FC = () => {
     const {width} = useWindowDimensions();
     const imageWidth = width / 2;
     const {top} = useSafeAreaInsets();
+    const {setSession} = useContext(SessionContext);
 
-    const onTermsTapped = () => {};
+    const navigation =
+        useNavigation<StackNavigationProp<SettingsStackParams, 'Settings'>>();
 
-    const onPrivacyTapped = () => {};
+    const onTermsTapped = () => {
+        navigation.navigate('Terms', {
+            text: DUMMY_TEXT,
+        });
+    };
 
-    const onLogoutTapped = () => {};
+    const onPrivacyTapped = () => {
+        navigation.navigate('Policy', {
+            text: DUMMY_TEXT,
+        });
+    };
+
+    const onLogoutTapped = () => {
+        setSession(false);
+    };
 
     return (
         <View style={[styles.container, {marginTop: top}]}>

@@ -1,19 +1,24 @@
-import React, {useEffect} from 'react';
+import React, {useContext, useEffect} from 'react';
 import SplashScreen from 'react-native-splash-screen';
 import SessionProvider from './src/context/SessionProvider';
 
 import {NavigationContainer} from '@react-navigation/native';
 import LoginStack from './src/router/LoginStack';
 import TabBar from './src/router/TabBar';
+import {SessionContext} from './src/context/SessionContext';
 
 const Container = () => {
+    const {idle, session} = useContext(SessionContext);
+
     useEffect(() => {
-        SplashScreen.hide();
-    }, []);
+        if (!idle) {
+            SplashScreen.hide();
+        }
+    }, [idle]);
 
     return (
         <NavigationContainer>
-            <TabBar />
+            {session ? <TabBar /> : <LoginStack />}
         </NavigationContainer>
     );
 };

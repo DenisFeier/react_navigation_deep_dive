@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {
     View,
     KeyboardAvoidingView,
@@ -11,6 +11,7 @@ import ThemedCard from '../../components/ThemedCard';
 import RoundedButton from '../../components/RoundedButton';
 import {styles} from './styles';
 import DismissKeyboardOnMountHOC from '../../hoc/DismissKeyboardOnMountHOC';
+import {SessionContext} from '../../context/SessionContext';
 
 const RegisterScreen = () => {
     const [email, setEmail] = useState('');
@@ -18,9 +19,10 @@ const RegisterScreen = () => {
     const [rePassword, setRePassword] = useState('');
     const {width} = useWindowDimensions();
     const cardWidth = width * 0.8;
-
+    const {setSession} = useContext(SessionContext);
     const handle = () => {
         console.log('Logging in with:', email, password, rePassword);
+        setSession(true);
     };
 
     return (

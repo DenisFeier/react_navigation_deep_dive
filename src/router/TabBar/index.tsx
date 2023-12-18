@@ -1,12 +1,12 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {TabBarParams} from './params';
-import WelcomeScreen from '../../screens/WelcomeScreen';
 import Feather from 'react-native-vector-icons/Feather';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {TabbarIconProps} from '../../types/TabBarIconProps';
 import ProductStack from '../ProductStack';
 import CategoryDrawer from '../CategoryDrawer';
+import SettingsStack from '../SettingsStack';
 
 const Tab = createBottomTabNavigator<TabBarParams>();
 
@@ -46,7 +46,7 @@ const TabBar = () => {
 
             <Tab.Screen
                 name="Settings"
-                component={WelcomeScreen}
+                component={SettingsStack}
                 options={{
                     tabBarIcon: SettingsIcon,
                 }}

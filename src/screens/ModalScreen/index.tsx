@@ -4,13 +4,21 @@ import {styles} from './styles';
 import BigTextScrollView from '../../components/BigTextScrollView';
 import RoundedButton from '../../components/RoundedButton';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
+import {SettingsStackParams} from '../../router/SettingsStack/params';
+import {StackNavigationProp} from '@react-navigation/stack';
 
 const ModalScreen: React.FC = () => {
-    const text = '';
-    const title = '';
+    const route = useRoute<RouteProp<SettingsStackParams, 'Terms'>>();
+    const navigation =
+        useNavigation<StackNavigationProp<SettingsStackParams>>();
+    const text = route.params.text;
+    const title = route.name;
     const {top} = useSafeAreaInsets();
 
-    const dismiss = () => {};
+    const dismiss = () => {
+        navigation.goBack();
+    };
 
     return (
         <View style={[styles.container, {marginTop: top}]}>
